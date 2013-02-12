@@ -1,0 +1,6 @@
+<% for (i = 0; i < posts.length; i++){ %>
+<div class='post'>
+  <a href='/posts/<%= i %>'><h2><%= posts[i].title %></h2></a>
+  <p><%= posts[i].body %></p>
+</div>
+<% } %>
