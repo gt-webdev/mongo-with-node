@@ -1,3 +1,5 @@
-var express = require("express");
+var express = require("express"),
+    app = new express();
 
-//nothing yet
+app.use(express.bodyParser());
+app.use(express.methodOverride());
