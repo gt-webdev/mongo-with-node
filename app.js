@@ -24,7 +24,7 @@ app.post("/posts", function(req, res){
       body: req.body['body']
     };
     posts.push(new_post);
-    res.redirect(req.url);
+    res.redirect('/');
   } else {
     res.send(400);
   }
@@ -32,8 +32,7 @@ app.post("/posts", function(req, res){
 
 app.put("/posts/:id", function(req, res){
   var post_id = parseInt(req.params['id']);
-  if (post_id && post_id >= 0 && post_id < posts.length){
-     res.render("view_post", {id: post_id, post: posts[post_id]});
+  if (post_id >= 0 && post_id < posts.length){
     if (req.body['title'] && req.body['body']){
       var new_post = {
         title: req.body['title'],
@@ -51,9 +50,9 @@ app.put("/posts/:id", function(req, res){
 
 app.delete("/posts/:id", function(req, res){
   var post_id = parseInt(req.params['id']);
-  if (post_id && post_id >= 0 && post_id < posts.length){
+  if (post_id >= 0 && post_id < posts.length){
     posts.splice(post_id, 1); //splice is a pretty good indie game
-    res.send(200);
+    res.redirect('/');
   } else {
     res.send(404);
   }

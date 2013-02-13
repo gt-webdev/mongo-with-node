@@ -1,6 +1,18 @@
-<% for (i = 0; i < posts.length; i++){ %>
+<% for (i = posts.length-1; i>=0;i--){ %>
 <div class='post'>
-  <a href='/posts/<%= i %>'><h2><%= posts[i].title %></h2></a>
+  <a href='/posts/<%= i %>'><h2 style='display:inline'><%= posts[i].title %></h2></a>
+  <form method="POST" action='/posts/<%= i %>' style='display:inline'>
+    <input type='hidden' name='_method' value='delete' />
+    <input type='submit' value='delete post'/>
+  </form>
   <p><%= posts[i].body %></p>
 </div>
 <% } %>
+
+<h1>add a post</h1>
+<form method='POST' action='/posts'>
+  <input name='title' id='title_field' placeholder='Post Title' /><br />
+  <textarea name='body' id='body_field'></textarea><br />
+  <input type='submit' value='add a post' />
+</form>
+

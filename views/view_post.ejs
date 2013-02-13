@@ -1,2 +1,16 @@
-<h1><%= post.title %></h1>
+<h1 style='display:inline'><%= post.title %></h1>
+  <form method="POST" action='/posts/<%= id %>' style='display:inline'>
+    <input type='hidden' name='_method' value='delete' />
+    <input type='submit' value='delete post'/>
+  </form>
 <p><%= post.body %></p>
+
+<a href='/'>go back</a>
+
+<h2>edit post</h2>
+<form method='POST' action='/posts/<%= id %>'>
+  <input type='hidden' name='_method' value='put' />
+  <input name='title' id='title_field' placeholder='Post Title' /><br />
+  <textarea name='body' id='body_field'></textarea><br />
+  <input type='submit' value='add a post' />
+</form>
