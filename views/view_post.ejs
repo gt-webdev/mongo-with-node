@@ -1,12 +1,42 @@
+<html>
+  <head>
+    <title>Simple Blog</title>
+    <link href="http://cdn.jsdelivr.net/bootstrap/2.3.0/css/bootstrap-responsive.min.css" rel="stylesheet" type="text/css"> 
+    <style>
+      body {
+        margin: 0 auto;
+        width: 600px;
+      }
+ 
+      .post {
+        background: #eee;
+        border: 1px solid #ccc;
+        margin: 5px;
+        padding: 10px;
+      }
+ 
+      .add_post {
+        background: #eee;
+        border: 1px solid #ccc;
+        margin: 5px;
+        padding: 10px;
+        border-radius: 10px;
+      }
+    </style>
+  </head>
+  <body>
+<div class='post'>
 <h1 style='display:inline'><%= post.title %></h1>
   <form method="POST" action='/posts/<%= id %>' style='display:inline'>
     <input type='hidden' name='_method' value='delete' />
     <input type='submit' value='delete post'/>
   </form>
 <p><%= post.body %></p>
-
 <a href='/'>go back</a>
+</div>
 
+
+<div class="add_post">
 <h2>edit post</h2>
 <form method='POST' action='/posts/<%= id %>'>
   <input type='hidden' name='_method' value='put' />
@@ -14,3 +44,6 @@
   <textarea name='body' id='body_field'></textarea><br />
   <input type='submit' value='add a post' />
 </form>
+</div>
+</body>
+</html>
